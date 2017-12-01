@@ -1,9 +1,9 @@
 "use strict";
 
-chrome.runtime.getBackgroundPage(function(bg) {
-	bg.getAllEntries(function(entries) {
-		bg.getRecordingTimes(function(recordingTimes) {
-			bg.getContacts(function(contacts) {
+chrome.runtime.getBackgroundPage(function (bg) {
+	bg.getAllEntries(function (entries) {
+		bg.getRecordingTimes(function (recordingTimes) {
+			bg.getContacts(function (contacts) {
 				plot(entries, recordingTimes, contacts);
 				window.scrollTo(document.body.scrollWidth, 0);
 			});
@@ -37,8 +37,7 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 
 			if (unnamedA != unnamedB) {
 				return unnamedA ? 1 : -1;
-			}
-			else {
+			} else {
 				return nameA.localeCompare(nameB);
 			}
 		});
@@ -47,7 +46,7 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		d3.max(data.onlineRanges, (d) => d[1].time)
 	];
 	if (data.onlineRanges.length == 0)
-		data.timeExtent = [0,0];
+		data.timeExtent = [0, 0];
 
 	let size = {
 		secondWidth: 0.15,
@@ -70,8 +69,8 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		y: d3.scale.ordinal()
 			.domain(data.ids)
 			.rangeRoundPoints([0, size.outerHeight]),
-		yInverse: function(y) {
-			let parts  = data.ids.length - 1;
+		yInverse: function (y) {
+			let parts = data.ids.length - 1;
 			let width = size.outerHeight / parts;
 
 			y += width / 2;
@@ -89,18 +88,18 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 
 	let groups = {};
 
-	groups.timeline					= svg.append('g');
-	groups.timeline_background		= groups.timeline.append('g').attr('id', 'background_group');
-	groups.timeline_recordings		= groups.timeline.append('g').attr('id', 'recordings_group');
-	groups.timeline_timeticks		= groups.timeline.append('g').attr('id', 'timeticks_group')
-	groups.timeline_timelabels		= groups.timeline.append('g').attr('id', 'timelabels_group');
-	groups.timeline_highlight		= groups.timeline.append('g').attr('id', 'timeline_highlight_group');
-	groups.timeline_onlineranges	= groups.timeline.append('g').attr('id', 'online_ranges_group');;
+	groups.timeline = svg.append('g');
+	groups.timeline_background = groups.timeline.append('g').attr('id', 'background_group');
+	groups.timeline_recordings = groups.timeline.append('g').attr('id', 'recordings_group');
+	groups.timeline_timeticks = groups.timeline.append('g').attr('id', 'timeticks_group')
+	groups.timeline_timelabels = groups.timeline.append('g').attr('id', 'timelabels_group');
+	groups.timeline_highlight = groups.timeline.append('g').attr('id', 'timeline_highlight_group');
+	groups.timeline_onlineranges = groups.timeline.append('g').attr('id', 'online_ranges_group');;
 
-	groups.panel			= svg.append('g');
+	groups.panel = svg.append('g');
 	groups.panel_background = groups.panel.append('g');
-	groups.panel_highlight 	= groups.panel.append('g').attr('id', 'panel_highlight_group');
-	groups.panel_labels 	= groups.panel.append('g').attr('id', 'panel_labels_group');
+	groups.panel_highlight = groups.panel.append('g').attr('id', 'panel_highlight_group');
+	groups.panel_labels = groups.panel.append('g').attr('id', 'panel_labels_group');
 
 	groups.timeline_background.append('rect')
 		.attr('x', 0)
@@ -121,12 +120,11 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		.attr('y1', (d) => scale.y(d[0]['id']))
 		.attr('x2', (d) => scale.x(d[1]['time']))
 		.attr('y2', (d) => scale.y(d[1]['id']))
-		.append('title').text(function (d){
+		.append('title').text(function (d) {
 			let name = data.contacts[d[1]['id']].displayName;
 			let time = new Date(d[0].time * 1000);
 			let ultimo = new Date(d[1].time * 1000);
-			return name + ' entrato alle ' + time.getHours() + ':' + time.getMinutes()
-				+ ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' uscito alle ' + ultimo.getHours() + ':' + ultimo.getMinutes() + ', ' + ultimo.getDate() + '/' + ultimo.getMonth() + '/' + ultimo.getFullYear();
+			return name + ' entrato alle ' + time.getHours() + ':' + time.getMinutes() + ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' uscito alle ' + ultimo.getHours() + ':' + ultimo.getMinutes() + ', ' + ultimo.getDate() + '/' + ultimo.getMonth() + '/' + ultimo.getFullYear();
 		});
 
 	{
@@ -147,7 +145,7 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 			.attr('x', (d) => (scale.x(d.getTime() / 1000) + 5))
 			.text((d) => timeTickFormatFunction(d));
 	}
-	
+
 	{
 		groups.panel_background.append('rect')
 			.attr('x', 0)
@@ -172,9 +170,9 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 	}
 
 	{
-		groups.timeline.attr('transform', 'translate(' + size.panelWidth +')');
+		groups.timeline.attr('transform', 'translate(' + size.panelWidth + ')');
 
-		document.addEventListener('scroll', function(e) {
+		document.addEventListener('scroll', function (e) {
 			groups.panel.attr('transform', 'translate(' + window.scrollX + ')');
 		});
 	}
@@ -182,16 +180,16 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 	{
 		const hidden = -1024;
 
-		let sel_timeline 		= groups.timeline_highlight	.append('rect');
-		let sel_panel 			= groups.panel_highlight	.append('rect');
-		let highlight_timeline 	= groups.timeline_highlight	.append('rect');
-		let highlight_panel		= groups.panel_highlight	.append('rect');
+		let sel_timeline = groups.timeline_highlight.append('rect');
+		let sel_panel = groups.panel_highlight.append('rect');
+		let highlight_timeline = groups.timeline_highlight.append('rect');
+		let highlight_panel = groups.panel_highlight.append('rect');
 
 		for (let elem of [sel_timeline, sel_panel, highlight_timeline, highlight_panel])
 			elem.attr('x', 0)
-				.attr('y', hidden)
-				.attr('height', size.rowHeight)
-				.attr('class', 'highlight');
+			.attr('y', hidden)
+			.attr('height', size.rowHeight)
+			.attr('class', 'highlight');
 
 		for (let elem of [sel_timeline, highlight_timeline])
 			elem.attr('width', size.timelineWidth);
@@ -199,19 +197,19 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		for (let elem of [sel_panel, highlight_panel])
 			elem.attr('width', size.panelWidth);
 
-		document.addEventListener('mouseout', function(e) {
+		document.addEventListener('mouseout', function (e) {
 			highlight_timeline.attr('y', hidden);
 			highlight_panel.attr('y', hidden);
 		});
 
-		document.addEventListener('mousemove', function(e) {
+		document.addEventListener('mousemove', function (e) {
 			let y = scale.y(scale.yInverse(e.pageY)) - size.rowHeight / 2;
 
 			highlight_timeline.attr('y', y);
 			highlight_panel.attr('y', y);
 		});
 
-		document.addEventListener('click', function(e) {
+		document.addEventListener('click', function (e) {
 			let y = scale.y(scale.yInverse(e.pageY)) - size.rowHeight / 2
 
 			let clickedSelf = sel_timeline.attr('y') == y;
@@ -225,11 +223,13 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 }
 
 function fullContacts(contacts, entries) {
-	
+
 	let newContacts = {};
 
 	for (let entry of entries) {
-		newContacts[entry.id] = {id: entry.id};
+		newContacts[entry.id] = {
+			id: entry.id
+		};
 	}
 
 	for (let id in contacts) {
@@ -248,11 +248,13 @@ function onlineRanges(entries, recordingTimes) {
 	let myEntries = entries.slice();
 
 	let nestedById = d3.nest()
-		.key(function(d) { return d.id; })
+		.key(function (d) {
+			return d.id;
+		})
 		.sortKeys(d3.ascending)
 		.entries(myEntries);
 
-	let online = d3.merge(nestedById.map(function(d) {
+	let online = d3.merge(nestedById.map(function (d) {
 		let updates = d.values;
 		let ranges = [];
 		let online = false;
@@ -283,4 +285,4 @@ function onlineRanges(entries, recordingTimes) {
 	}));
 
 	return online;
-}
+} 
