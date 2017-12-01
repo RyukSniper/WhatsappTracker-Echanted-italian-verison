@@ -124,8 +124,9 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		.append('title').text(function (d){
 			let name = data.contacts[d[1]['id']].displayName;
 			let time = new Date(d[0].time * 1000);
-			return name + ' at ' + time.getHours() + ':' + time.getMinutes()
-				+ ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear();
+			let ultimo = new Date(d[1].time * 1000);
+			return name + ' entrato alle ' + time.getHours() + ':' + time.getMinutes()
+				+ ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' uscito alle ' + ultimo.getHours() + ':' + ultimo.getMinutes() + ', ' + ultimo.getDate() + '/' + ultimo.getMonth() + '/' + ultimo.getFullYear();
 		});
 
 	{
