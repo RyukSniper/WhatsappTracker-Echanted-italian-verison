@@ -34,14 +34,11 @@ function presenceCapture() {
                 if (online[c.id] != c.isOnline) {
                     online[c.id] = c.isOnline;
                     var change = {
-                        id: c.id
-                        , online: c.isOnline
-                        , time: parseInt(new Date().getTime() / 1000)
+                        id: c.id,online: c.isOnline,
+                        time: parseInt(new Date().getTime() / 1000)
                     };
                     parentWindow.postMessage({
-                        type: 'wa_presence_update'
-                        , value: change
-                    }, '*');
+                        type: 'wa_presence_update',value: change}, '*');
                     console.log('Presence update:' + change);
                 }
             });
@@ -51,18 +48,18 @@ function presenceCapture() {
         Store.Stream.handle = function () {
             console.log('Stream.handle:', arguments, arguments[0]);
             switch (arguments[0][0]) {
-            case 'awake':
-                parentWindow.postMessage({
-                    type: 'wa_stream_start'
-                }, '*');
-                break;
-            case 'asleep':
-                parentWindow.postMessage({
-                    type: 'wa_stream_end'
-                }, '*');
-                // // Try to wake up the stream
-                Store.Wap.presenceSubscribe(Store.Conn.me);
-                break;
+                case 'awake':
+                    parentWindow.postMessage({
+                        type: 'wa_stream_start'
+                    }, '*');
+                    break;
+                case 'asleep':
+                    parentWindow.postMessage({
+                        type: 'wa_stream_end'
+                    }, '*');
+                    // // Try to wake up the stream
+                    Store.Wap.presenceSubscribe(Store.Conn.me);
+                    break;
             }
             return _streamHandle.apply(Store.Stream, arguments);
         };
@@ -71,8 +68,8 @@ function presenceCapture() {
         Object.defineProperty(Store.Stream, '__x_phoneAuthed', {
             get: function () {
                 return _phoneAuthed;
-            }
-            , set: function (newValue) {
+            },
+            set: function (newValue) {
                 _phoneAuthed = newValue;
                 var eventName = _phoneAuthed ? 'wa_logged_in' : 'wa_logged_out';
                 parentWindow.postMessage({
@@ -89,8 +86,8 @@ function presenceCapture() {
             console.log('Reporting contacts to background');
             var contacts = Store.Contact.toJSON();
             parentWindow.postMessage({
-                type: 'wa_contacts'
-                , value: contacts
+                type: 'wa_contacts',
+                value: contacts
             }, '*');
             return originalReturnValue;
         };
