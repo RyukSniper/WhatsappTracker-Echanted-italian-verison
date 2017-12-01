@@ -48,6 +48,7 @@ Ora puoi aprire WhatsappTracker proprio come un normale programma.
 
 Ogni volta che il mio telefono non riesce a trovare alcuna rete Wi-Fi e inizia a utilizzare Internet mobile,
 l'app Web di WhatsApp dichiara che non è possibile connettersi al telefono e quindi la registrazione si interromperà.
+Se il telefono dopo tot minuti non sará sbloccato almeno a me, la registrazione si bloccherá fatemi sapere se anche a voi da questo problema.
 
 ## Lavoro futuro
 
