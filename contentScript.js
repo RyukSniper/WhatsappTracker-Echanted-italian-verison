@@ -34,8 +34,9 @@ function presenceCapture() {
                 if (online[c.id] != c.isOnline) {
                     online[c.id] = c.isOnline;
                     var change = {
-                        id: c.id,online: c.isOnline,
-                        time: parseInt(new Date().getTime() / 1000)
+                        id: c.id,
+                        online: c.isOnline,
+                        time: parseInt(new Date().getTime() / 1000), 
                     };
                     parentWindow.postMessage({
                     type: 'wa_presence_update',value: change}, '*');
