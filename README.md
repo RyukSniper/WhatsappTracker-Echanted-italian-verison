@@ -7,7 +7,7 @@ per controllare ripetutamente se i tuoi amici sono online.
 Queste informazioni sono raccolte e archiviate localmente sul tuo computer, in modo che tu possa visualizzarlo successivamente e analizzare l'attività dei tuoi amici.
 Puoi scoprire quanto tempo impiegano con WhatsApp, e se lo usano molto puoi anche sapere quando vanno a dormire o quando si svegliano!
 
-! [Screenshot timeline] (screenshot/timeline.png)
+! [Screenshot timeline] (screenshots/timeline.png)
 ## Come ho fatto?
 
 Molto tempo fa ho avuto l'idea di scrivere manualmente i tempi "visti" di WhatsApp di qualcuno durante il giorno per scoprire quanto tempo sono stati con WhatsApp aperto.
