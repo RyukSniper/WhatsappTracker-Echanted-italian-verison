@@ -38,7 +38,7 @@ function presenceCapture() {
                         time: parseInt(new Date().getTime() / 1000)
                     };
                     parentWindow.postMessage({
-                        type: 'wa_presence_update',value: change}, '*');
+                    type: 'wa_presence_update',value: change}, '*');
                     console.log('Presence update:' + change);
                 }
             });
