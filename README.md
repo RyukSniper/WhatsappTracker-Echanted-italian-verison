@@ -57,7 +57,7 @@ Google ha [annunciato] (https://blog.chromium.org/2016/08/from-chrome-apps-to-we
 Presto, WhatsappTracker dovrà essere riscritto su un'altra piattaforma per continuare a funzionare.
 Piú nuove features.
 1) Real-time del grafico della TimeLine.
-2) App nativa prima sará fatta in NW.js prossimamente su electrum.
+2) App nativa prima sará fatta in NW.js prossimamente su electron.
 3) Imbellimento della grafica generale.
 4) Possibilitá di imbellire a proprio piacimento la visualizzazione di Whatsapp per esempio colori, bolle etc.
 5) Nella modalitá Rec invece di un log, la possibilitá di vedere chi é realmente e quando é entrato.
