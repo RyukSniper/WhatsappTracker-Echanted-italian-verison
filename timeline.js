@@ -120,12 +120,12 @@ function plot(inputEntries, inputRecordingTimes, inputContacts) {
 		.attr('x1', (d) => scale.x(d[0]['time']))
 		.attr('y1', (d) => scale.y(d[0]['id']))
 		.attr('x2', (d) => scale.x(d[1]['time']))
-		.append('title').text(function (d) {
+		.attr('y2', (d) => scale.y(d[1]['id']))
+		.append('title').text(function (d){
 			let name = data.contacts[d[1]['id']].displayName;
 			let time = new Date(d[0].time * 1000);
 			let ultimo = new Date(d[1].time * 1000);
-            let tutto = name + ' entrato alle ' + time.getHours() + ':' + time.getMinutes() + ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' uscito alle ' + ultimo.getHours() + ':' + ultimo.getMinutes() + ', ' + ultimo.getDate() + '/' + ultimo.getMonth() + '/' + ultimo.getFullYear();
-			return tutto;
+            return name + ' entrato alle ' + time.getHours() + ':' + time.getMinutes() + ', ' + time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' uscito alle ' + ultimo.getHours() + ':' + ultimo.getMinutes() + ', ' + ultimo.getDate() + '/' + ultimo.getMonth() + '/' + ultimo.getFullYear();
 		});
 
 	{
