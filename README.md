@@ -55,6 +55,12 @@ Se il telefono dopo tot minuti non sará sbloccato almeno a me, la registrazione
 Google ha [annunciato] (https://blog.chromium.org/2016/08/from-chrome-apps-to-web.html) la deprecazione delle app di Chrome.
 Presto, WhatsappTracker dovrà essere riscritto su un'altra piattaforma per continuare a funzionare.
 Piú nuove features.
+1) Real-time del grafico della TimeLine.
+2) App nativa prima sará fatta in NW.js prossimamente su electrum.
+3) Imbellimento della grafica generale.
+4) Possibilitá di imbellire a proprio piacimento la visualizzazione di Whatsapp per esempio colori, bolle etc.
+5) Nella modalitá Rec invece di un log, la possibilitá di vedere chi é realmente e quando é entrato.
+6) Possibilitá di cercare fra i contatti nella TimeLine per vedere il grafico intero della persona desiderata.
 
 ## Licenza
 
