@@ -12,8 +12,6 @@
 	},
 	"permissions": [
 		"webview",
-		{"fileSystem": ["write", "retainEntries", "directory"]},
-		"power",
-		"storage"
+		{"fileSystem": ["write", "retainEntries", "directory"]},"power","storage"
 	]
 }
