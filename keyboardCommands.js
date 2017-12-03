@@ -4,7 +4,6 @@ const keyEscape = 27;
 
 const bindings = {
 	[keyEscape]: () => chrome.app.window.current().close(),
-	[keyQ]: () => chrome.app.window.current().close()
 };
 
 document.addEventListener('DOMContentLoaded', function() {
