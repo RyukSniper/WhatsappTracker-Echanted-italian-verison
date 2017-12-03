@@ -1,4 +1,4 @@
-# ![Icon](art/icon64.png) WaTracker
+# ![Icon](art/icon64.png) WhatsappTracker
 WhatsappTracker
 
 Vi siete mai chiesti che cosa potete imparare sulle persone perseguendoli in WhatsApp XD?
