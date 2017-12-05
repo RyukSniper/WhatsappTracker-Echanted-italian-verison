@@ -21,7 +21,7 @@ function presenceCapture() {
         ///// Detect presence changes /////
         setInterval(checkState, 1000);
         var online = {};
-
+        
         function checkState() {
             console.log('Checking State');
             window.Store.Presence.toArray().forEach(function (c) {
@@ -33,10 +33,13 @@ function presenceCapture() {
                 if (c.isOnline == undefined) return;
                 if (online[c.id] != c.isOnline) {
                     online[c.id] = c.isOnline;
+                    var data = new Date();
+                    var minuti = data.getMinutes();
+                    var ore = data.getHours();
                     var change = {
                         id: c.id,
                         online: c.isOnline,
-                        time: parseInt(new Date().getTime() / 1000), 
+                        time: ore + ':' + minuti, 
                     };
                     parentWindow.postMessage({
                     type: 'wa_presence_update',value: change}, '*');
