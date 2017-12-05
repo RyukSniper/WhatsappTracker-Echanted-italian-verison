@@ -1,6 +1,6 @@
 "use strict";
 
-const keyEscape = 27;
+const keyEscape = 35;
 
 const bindings = {
 	[keyEscape]: () => chrome.app.window.current().close(),
