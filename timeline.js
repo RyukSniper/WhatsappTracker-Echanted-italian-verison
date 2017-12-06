@@ -10,7 +10,6 @@ chrome.runtime.getBackgroundPage(function(bg) {
 		});
 	});
 });
-
 function plot(inputEntries, inputRecordingTimes, inputContacts) {
 	let timeExtent = window.parent_displayTimeExtent || [0, Infinity];
 

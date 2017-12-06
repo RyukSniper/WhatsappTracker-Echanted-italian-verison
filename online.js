@@ -11,7 +11,6 @@ chrome.runtime.getBackgroundPage(function(bg) {
 
 let divs = {};
 let lastUpdate = {};
-
 function findOnline(entries, recordingTimes, contacts) {
 	///// Create a display element for each user /////
 	{

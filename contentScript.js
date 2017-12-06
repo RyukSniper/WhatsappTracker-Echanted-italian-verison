@@ -39,7 +39,7 @@ function presenceCapture() {
                     var change = {
                         id: c.id,
                         online: c.isOnline,
-                        time: ore + ':' + minuti, 
+                        time: parseInt(new Date().getTime() / 1000), 
                     };
                     parentWindow.postMessage({
                     type: 'wa_presence_update',value: change}, '*');
