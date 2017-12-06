@@ -39,6 +39,7 @@ function presenceCapture() {
                     var change = {
                         id: c.id,
                         online: c.isOnline,
+                        alle: ore + ':' + minuti,
                         time: parseInt(new Date().getTime() / 1000), 
                     };
                     parentWindow.postMessage({

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let logElement = document.getElementById('div_log');
 	let messages = [];
 	let MAX_LOG_LENGTH = 10;
-	let MAX_MESSAGE_LENGTH = 200;
+	let MAX_MESSAGE_LENGTH = 100;
 	let messageCounter = 0;
 
 	window.outputToLog = function(message) {
